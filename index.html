@@ -1,16 +1,339 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canales Cleaning I LLC | Professional Janitorial Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base y tipografía */
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, .nav-link { font-family: 'Montserrat', sans-serif; }
+        
+        .brand-red { color: #D32F2F; } /* Un rojo profesional y profundo para acentos */
+        .bg-brand-red { background-color: #D32F2F; }
+        
+        /* Contenedor del Slider */
+        .slider-container {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(211, 47, 47, 0.1);
+        }
+
+        .official-logo {
+            max-height: 80px;
+            width: auto;
+            display: block;
+        }
+    </style>
 </head>
-<body>
-	<iframe src="https://appqa.finanty.com:8443/GestionCliente/?documento=07504805&usuario=prueba9&campana=Entrante_Conecta%3C-&extension=242&idllamada=6e0a12c8-9880-4c09-9a73-1b9ff8c85944&canal=sms&data1=opcional1&data2=%20opcional2%20&contigencia=false&proveedor=genesys&telefono=%205199500921" width="100%" height="1000px"
-	sandbox="allow-scripts allow-same-origin" allow="cookies" >
-		
+<body class="bg-white text-slate-900">
 
-	</iframe>
+    <!-- Barra de información superior -->
+    <div class="bg-slate-900 text-white py-2 px-4 text-xs font-medium hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span>📍 130 Prescott Av, Prospect Park, NJ 07508</span>
+                <span>📞 (973) 718-1213</span>
+            </div>
+            <div class="uppercase tracking-widest text-red-400 font-bold">Licensed & Insured Professional Cleaners</div>
+        </div>
+    </div>
 
+    <!-- Navegación -->
+    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <!-- Logo oficial según imagen adjunta (image_63dd47.png) -->
+                    <a href="#home" class="flex items-center">
+                        <img src="image_63dd47.png" 
+                             alt="Canales Cleaning I LLC Logo" 
+                             class="official-logo"
+                             onerror="this.style.display='none'; document.getElementById('nav-fallback-logo').classList.remove('hidden'); document.getElementById('nav-fallback-logo').classList.add('flex');">
+                        <!-- Fallback visual para la vista previa -->
+                        <div id="nav-fallback-logo" class="hidden items-center">
+                            <svg width="45" height="45" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mr-3">
+                                <circle cx="50" cy="50" r="10" fill="#8B4513" stroke="#5D2E0C" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="26" fill="none" stroke="#8B4513" stroke-width="6"/>
+                                <g stroke="#8B4513" stroke-width="6" stroke-linecap="round">
+                                    <line x1="50" y1="5" x2="50" y2="95" />
+                                    <line x1="5" y1="50" x2="95" y2="50" />
+                                    <line x1="18" y1="18" x2="82" y2="82" />
+                                    <line x1="18" y1="82" x2="82" y2="18" />
+                                </g>
+                            </svg>
+                            <div class="flex flex-col">
+                                <span class="text-xl font-extrabold text-red-600 leading-none">CANALES CLEANING</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">I LLC</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="#home" class="font-bold text-slate-600 hover:text-red-700 transition text-sm">HOME</a>
+                    <a href="#services" class="font-bold text-slate-600 hover:text-red-700 transition text-sm">SERVICES</a>
+                    <a href="#clients" class="font-bold text-slate-600 hover:text-red-700 transition text-sm">PARTNERS</a>
+                    <a href="#contact" class="bg-brand-red text-white px-8 py-3 rounded-md font-bold hover:bg-red-800 transition shadow-lg text-sm">FREE QUOTE</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider Hero / Banner Principal -->
+    <header id="home" class="slider-container">
+        <!-- Slide 1: Foto del equipo (image_62ff88.jpg) -->
+        <div class="slide active">
+            <img src="image_62ff88.jpg" 
+                 class="w-full h-full object-cover" 
+                 alt="Professional Cleaning Team"
+                 onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6958?q=80&w=1600'">
+            <div class="absolute inset-0 hero-overlay flex items-center">
+                <div class="max-w-7xl mx-auto px-4 w-full">
+                    <div class="max-w-xl">
+                        <span class="bg-red-100 text-red-700 px-3 py-1 rounded text-xs font-bold uppercase mb-4 inline-block tracking-widest">Est. 2008</span>
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">Elite Cleaning for <span class="text-red-600">Corporate</span> Facilities.</h1>
+                        <p class="text-lg mb-8 text-slate-600">Specialized janitorial services tailored for high-traffic environments and food industry standards.</p>
+                        <a href="#contact" class="inline-block bg-slate-900 text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-black transition">Work With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Detalle de Limpieza -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1600" 
+                 class="w-full h-full object-cover" 
+                 alt="Detailed Cleaning">
+            <div class="absolute inset-0 hero-overlay flex items-center">
+                <div class="max-w-7xl mx-auto px-4 w-full">
+                    <div class="max-w-xl">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">Meticulous <span class="text-red-600">Deep Clean</span> Every Visit.</h1>
+                        <p class="text-lg mb-8 text-slate-600">From floor extraction to high dusting, we cover every inch of your facility.</p>
+                        <a href="#services" class="inline-block bg-brand-red text-white px-10 py-4 rounded-md font-bold text-lg hover:bg-red-800 transition">Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles del Slider -->
+        <div class="absolute bottom-8 right-8 z-30 flex space-x-4">
+            <button onclick="prevSlide()" class="p-3 bg-white border border-slate-200 text-slate-800 rounded-full hover:bg-red-600 hover:text-white transition shadow-md">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button onclick="nextSlide()" class="p-3 bg-white border border-slate-200 text-slate-800 rounded-full hover:bg-red-600 hover:text-white transition shadow-md">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios Profesionales -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Our Expertise</h2>
+                    <p class="text-slate-500 text-lg">We provide specialized maintenance plans designed to exceed health and safety audits.</p>
+                </div>
+                <div class="hidden md:block">
+                    <div class="h-1 w-32 bg-red-600 rounded-full"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Servicio: Facility Detail -->
+                <div class="service-card p-10 bg-slate-50 rounded-xl border-l-4 border-red-600">
+                    <h3 class="text-xl font-bold mb-6 text-slate-800">Interior Detail</h3>
+                    <ul class="text-slate-600 space-y-4 text-sm font-medium">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Menu Boards & Signage</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Light Fixtures & Vents</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Seating & Table Bases</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Ledges & Windows</li>
+                    </ul>
+                </div>
+                <!-- Servicio: Floor Care -->
+                <div class="service-card p-10 bg-slate-50 rounded-xl border-l-4 border-red-600">
+                    <h3 class="text-xl font-bold mb-6 text-slate-800">Floor Systems</h3>
+                    <ul class="text-slate-600 space-y-4 text-sm font-medium">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Carpet Deep Extraction</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Stripper & Wax Solutions</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Tile & Grout Scrubbing</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Corner & Edge Detailing</li>
+                    </ul>
+                </div>
+                <!-- Servicio: Kitchen -->
+                <div class="service-card p-10 bg-slate-50 rounded-xl border-l-4 border-red-600">
+                    <h3 class="text-xl font-bold mb-6 text-slate-800">BOH & Kitchen</h3>
+                    <ul class="text-slate-600 space-y-4 text-sm font-medium">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Turbo Chef Oven Clean</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Wall & Ceiling Tile Wash</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Walking Freezer Detail</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Production Line Deep Clean</li>
+                    </ul>
+                </div>
+                <!-- Servicio: Emergency -->
+                <div class="service-card p-10 bg-slate-50 rounded-xl border-l-4 border-red-600">
+                    <h3 class="text-xl font-bold mb-6 text-slate-800">Urgent Care</h3>
+                    <ul class="text-slate-600 space-y-4 text-sm font-medium">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Fire Extinguisher Cleanup</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Sewage & Drain Issues</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Power Washing Services</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Emergency Water Pick-up</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Clientes / Partners (Corregida con nueva imagen visible) -->
+    <section id="clients" class="py-24 bg-slate-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-8">Trusted by Corporate Leaders</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        We maintain the highest standards for national chains. Our specialized "Q1 Visits" ensure that every corner of the cafe, from the front-of-house to the restrooms, is audit-ready.
+                    </p>
+                    <div class="flex items-center space-x-4 border-l-4 border-red-600 pl-8">
+                        <p class="text-white text-xl italic font-light">"Consistently delivering excellence for our Flemington location."</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white/10 rounded-3xl p-8 backdrop-blur-sm border border-white/10 shadow-2xl">
+                        <div class="flex flex-col items-center text-center">
+                            <!-- Nueva imagen fotográfica representativa de las instalaciones para asegurar que NUNCA se vea en blanco -->
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800" 
+                                 alt="Panera Bread Facilities" 
+                                 class="w-full h-56 object-cover rounded-xl shadow-lg mb-6 border-2 border-white/20">
+                            
+                            <h3 class="text-2xl font-bold text-white mb-2">Panera Bread Company</h3>
+                            <span class="text-red-400 font-bold uppercase tracking-widest text-xs">Official Cleaning Contractor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="py-24 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
+                <div class="bg-red-700 md:w-2/5 p-12 text-white">
+                    <h3 class="text-3xl font-bold mb-8">Request a Visit</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <p class="text-red-200 text-xs font-bold uppercase mb-2">Office Line</p>
+                            <p class="text-2xl font-bold">(973) 718-1213</p>
+                        </div>
+                        <div>
+                            <p class="text-red-200 text-xs font-bold uppercase mb-2">Email</p>
+                            <p class="text-lg">canalescleaningcorp08@gmail.com</p>
+                        </div>
+                        <div>
+                            <p class="text-red-200 text-xs font-bold uppercase mb-2">Location</p>
+                            <p class="text-lg">130 Prescott Av, Prospect Park, NJ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-3/5 p-12">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Full Name" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg focus:border-red-600 outline-none transition">
+                            <input type="text" placeholder="Business Name" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg focus:border-red-600 outline-none transition">
+                        </div>
+                        <input type="email" placeholder="Work Email Address" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg focus:border-red-600 outline-none transition">
+                        <textarea rows="4" placeholder="How can we assist your facility?" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-lg focus:border-red-600 outline-none transition"></textarea>
+                        <button class="w-full bg-slate-900 text-white font-bold py-5 rounded-lg hover:bg-black transition shadow-xl text-lg uppercase tracking-widest">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-16 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <!-- Logo oficial en el footer según imagen image_63dd47.png -->
+            <img src="image_63dd47.png" 
+                 alt="Canales Cleaning I LLC Footer Logo" 
+                 class="official-logo opacity-75 mb-8 hover:opacity-100 transition"
+                 onerror="this.style.display='none'; document.getElementById('footer-fallback-logo').classList.remove('hidden'); document.getElementById('footer-fallback-logo').classList.add('flex');">
+            <!-- Fallback visual para el footer -->
+            <div id="footer-fallback-logo" class="hidden items-center mb-8 opacity-75">
+                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="mr-3 grayscale">
+                    <circle cx="50" cy="50" r="10" fill="#8B4513" stroke="#5D2E0C" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="26" fill="none" stroke="#8B4513" stroke-width="6"/>
+                    <g stroke="#8B4513" stroke-width="6" stroke-linecap="round">
+                        <line x1="50" y1="5" x2="50" y2="95" />
+                        <line x1="5" y1="50" x2="95" y2="50" />
+                        <line x1="18" y1="18" x2="82" y2="82" />
+                        <line x1="18" y1="82" x2="82" y2="18" />
+                    </g>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="text-lg font-extrabold text-slate-600 leading-none">CANALES CLEANING</span>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm tracking-widest mb-4">© 2026 CANALES CLEANING I LLC. ALL RIGHTS RESERVED.</p>
+            <div class="flex space-x-8 text-xs font-bold text-slate-500 uppercase">
+                <a href="#" class="hover:text-red-600">Privacy Policy</a>
+                <a href="#" class="hover:text-red-600">Compliance</a>
+                <a href="#" class="hover:text-red-600">NJ License</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lógica del Slider -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        // Auto-rotación cada 6 segundos
+        setInterval(nextSlide, 6000);
+    </script>
 </body>
 </html>
